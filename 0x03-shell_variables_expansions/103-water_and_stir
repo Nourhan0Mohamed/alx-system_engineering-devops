@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ibase=water;obase=bestchol;$WATER+$STIR" | bc
+printf "%s\n" $(echo "ibase=water;obase=A;${WATER//water/}" | bc) + $(echo "ibase=stir;obase=A;${STIR//stir./}" | bc) | bc | tr '0123456789ABC' 'bestchol'
